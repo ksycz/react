@@ -1,14 +1,13 @@
 import React from 'react';
 import ListItem from './ListItem/ListItem';
-import './ListWrapper.css';
-import { twitterAccounts } from '../../data/twitterAccounts';
+import styles from './ListWrapper.module.scss';
 // in ListWrapper below we use React props, map is the pure JS function
-
+ 
 // the prettiest version, with the spread operator
-const ListWrapper = () => (
-    <ul className="listWrapper__wrapper">
+const ListWrapper = (props) => (
+    <ul className={styles.wrapper}>
         
-        {twitterAccounts.map(item => (
+        {props.items.map(item => (
             <ListItem key={item.name} {...item} />
         ))}
     </ul>
