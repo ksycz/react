@@ -6,4 +6,11 @@
     background: none;
     border: 2px solid #354D7F;
     color: #354D7F;
+    border-radius: 3px;
   }
+
+.secondary {
+  @extend .button;
+  background-color: #354D7F;
+  color: #ffff;
+}

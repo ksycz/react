@@ -1,0 +1,15 @@
+.navItem {
+    list-style: none;
+    display: inline-block;
+    margin-right: 50px;
+
+    &Link {
+        text-decoration: none;
+        color: gray;
+
+        &Active {
+            font-weight: 700;
+            color: black;
+        }
+    }
+}

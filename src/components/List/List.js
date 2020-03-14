@@ -1,6 +1,6 @@
 import React from 'react';
 import ListItem from './ListItem/ListItem';
-import styles from './ListWrapper.module.scss';
+import styles from './List.module.scss';
 // in ListWrapper below we use React props, map is the pure JS function
  
 // the prettiest version, with the spread operator

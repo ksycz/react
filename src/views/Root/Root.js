@@ -1,7 +1,11 @@
 import React from 'react';
-import ListWrapper from './components/ListWrapper/ListWrapper';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './index.css';
-import Form from './components/Form/Form';
+import ArticlesView from '../ArticlesView/ArticlesView';
+import NotesView from '../NotesView/NotesView';
+import TwittersView from '../TwittersView/TwittersView';
+import Header from '../../components/Header/Header';
+import Modal from '../../components/Modal/Modal';
 
 const initialStateItems = [
         {
@@ -13,7 +17,7 @@ const initialStateItems = [
     ];
 
 // here we call functions using the JSX syntax
-class App extends React.Component {
+class Root extends React.Component {
     state = {
         // spread operator
         items: [...initialStateItems],
@@ -42,16 +46,22 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
-                <ListWrapper 
-                    items={this.state.items}
-                />
-                <Form 
-                    submitFn={this.addItem} 
-                />
-            </div>
+            <BrowserRouter>
+                <>
+                    <Header />
+                    <h1>Hey</h1>
+                    {/* everything inside switch is switchable, only one component can be open */}
+                    <Switch>
+                        <Route exact path="/" component={TwittersView} />
+                        <Route path="/articles" component={ArticlesView} />
+                        <Route path="/notes" component={NotesView} />
+                        <Route path="/notes/:id" component={NotesView} />
+                    </Switch>
+                    <Modal />
+                </>
+            </BrowserRouter> 
         )
     }
 };
 
-export default App;
+export default Root;
