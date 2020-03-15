@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from "./Button.module.scss";
 
-const Button = ({ children, href, secondary }) => {
+// ...props is for other props that can be defined later, for example, onClick
+const Button = ({ children, href, secondary, ...props }) => {
     // we need a fragment and ternary operator to create condition
 
     const buttonClass = secondary ? styles.secondary : styles.button;
@@ -17,9 +18,7 @@ const Button = ({ children, href, secondary }) => {
                     {children}
                 </a>
             ) : (
-                <button 
-                    className={buttonClass} 
-                    type="submit">
+                <button className={buttonClass} {...props}>
                     {children}
                 </button>
                 )

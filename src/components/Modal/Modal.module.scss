@@ -4,10 +4,45 @@
     left: 0;
     right: 0;
     transform: translateY(-50%);
-    padding: 25px 40px;
+    padding: 25px 40px 50px;
     margin: 0 auto;
     background-color: #ffff;
     max-width: 40vw;
-    height: 80vh;
+    min-height: 80vh;
     box-shadow: 0 10px 50px -20px rgba(#818181, .7);
+
+    .closeButton {
+        width: 27px;
+        height: 27px;
+        background: gray;
+        border: none; 
+        position: absolute;
+        right: 30px;
+        top: 20px;
+        
+        &::before, 
+        &::after {
+          content: '';
+          width: 14px;
+          height: 2px;
+          position: absolute;
+          background: white;
+          display: block;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: 0 auto;
+          transform-origin: 50%;
+        }
+        
+        &::before {
+          transform: rotate(45deg);
+        }
+        
+        &::after {
+          transform: rotate(-45deg);
+        }
+    }
 }
